@@ -59,7 +59,6 @@ class NFC (object):
 				print '--------------------------------------------------------------------------------'
 				print '0 - unsupport, 1 - support'
 
-	
 	#manually open connection
 	def opencon (self):
 		self.connectUART.close()
@@ -208,33 +207,12 @@ r.card_info()
 
 # return 00 if auth pass Mifare Ultralight C auth
 if r.authMifareUltralightC('BREAKMEIFYOUCAN!') == 0:
-	print 'door open'
+	print 'ok'
 else:
-	print 'naaaa, closed'
+	print 'not ok'
 #mifare classic auth
 #r.authMifareClassic(0x60, 0x02, 0xff,0xff,0xff,0xff,0xff,0xff)
 #get data in blocks
 #print binascii.hexlify (r.getMifareClassicBlock (0x05,0x02))
 
-ser = serial.Serial(
-port='COM2',
-baudrate = 115200,
-parity=serial.PARITY_NONE,
-stopbits=serial.STOPBITS_ONE,
-bytesize=serial.EIGHTBITS, timeout=0.05
-)
-ser.close()
-ser.open()
-
-ser.write (bytearray ([0x55,0x55,0x00,0x00,0x00]))
-print binascii.hexlify(ser.readline())
-ser.write (send_com(0x02, 0xd4, 0x02))
-print binascii.hexlify(ser.read())
-#you need wake up turn on rf
-#ser.write (send_com (0x08, 0xd4,0x08, 0xff,0xf4,0x07, 0xff,0xf5,0x07 ))
-#print binascii. hexlify (ser.readline ())
-#ser.write (send_com (0x08, 0xd4,0x08, 0xff,0xfC,0xFF,0xff,0xfD,0xFF ))
-#print binascii.hexlify (ser.readline ())
-
-ser.close()
 '''
