@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# GNU 3.0
 # -*- coding: utf-8 -*-
 
 import serial
