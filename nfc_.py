@@ -284,7 +284,8 @@ class tryports():
 #r.wakeup() #wake up chip
 #r.ChipInfo() #pn chip info
 #r.turnOnRF() #if you want to write or read something - turn on antenna
-# r.setMifareUltralightCKey('BREAKMEIFYOUCAN!') # default key is IEMKAERB!NACUOYF return 0 if all ok, else - wrong key
+# r.authMifareUltralightC('BREAKMEIFYOUCAN!') # default key is IEMKAERB!NACUOYF return 0 if all ok, else - wrong key
+# r.setMifareUltralightCKey ('ENTERKEYHERE!!!!') # set MifareUC key. (key change after  remove card from reader)
 #r.card_info() #read card, and output data in table
 # r.setMifateUltralightBlocks('Some info if needed') # rewrite all user memory
 # if your string less than 144 bytes - unuset  bytes will be fill 0x00
